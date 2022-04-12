@@ -4,6 +4,8 @@ public class Person {
     private String id;
     static int counter;
 
+    public enum Degree {UNDERGRADUATE, GRADUATE};
+
     //Constructors
     //no-arg(not sure is needed)
     public Person() {
