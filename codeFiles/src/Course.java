@@ -1,28 +1,33 @@
+import java.io.File;
+import java.util.Scanner;
+
 public class Course {
     //instance variables
     private Major name;
     private int credits;
-    private Assignment assignment;
+    private int grade;
+    //private Assignment assignment;
+    private boolean isPassed;
 
     //no-arg constructor
     public Course() {
         name = new Major();
         credits = 0;
-        assignment = new Assignment();
+        grade = 0;
     }
 
     //second constructor
-    public Course(Major name, int credits, Assignment assignment) {
+    public Course(Major name, int credits) {
         this.name = new Major(name);
         this.credits = credits;
-        this.assignment = new Assignment(assignment);
+        grade = 0;
     }
 
     //copy constructor
     public Course(Course course) {
         this.name = new Major(course.name);
         this.credits = course.credits;
-        this.assignment = new Assignment(course.assignment);
+        this.grade = course.grade;
     }
 
     //accessor for major name
@@ -35,9 +40,23 @@ public class Course {
         return this.credits;
     }
 
-    // accessor for assignment
-    public Assignment getAssignment() {
-        return new Assignment(this.assignment);
+    public boolean checkAssignment(String quiz) throws Exception {
+        File file = new File(quiz);
+        Scanner sc = new Scanner(file);
+        Scanner keyboard = new Scanner(System.in);
+        while (sc.hasNextLine()) {
+            String[] arr = sc.nextLine().split(":");
+            String question = arr[0];
+            String answer = arr[1];
+            System.out.println(question);
+            String input = keyboard.nextLine();
+            if (input.equals(answer)) {
+                grade++;
+            }
+        }
+        if(grade == 5){
+            isPassed = true;
+        }
+        return isPassed;
     }
-
 }

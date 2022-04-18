@@ -20,7 +20,7 @@ public abstract class Person {
         while (id.length() != 8)
             id = "0" + id;
         id = "A" + id;
-        System.out.println(id);
+//        System.out.println(id);
         counter++;
     }
 
