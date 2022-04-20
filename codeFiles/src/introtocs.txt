@@ -1,0 +1,5 @@
+1. What is the binary representation of 7 (1 byte representation) Answer:00000111
+2. What keywords do you use to define variables in JavaScript Answer:var, let
+3. What are the type of loops in JavaScript Answer:while, for, do while
+4. Which operator helps to get the remainder from the division of two numbers Answer:%
+5. Which statement we can use to force the loop to stop its current iteration only Answer:continue

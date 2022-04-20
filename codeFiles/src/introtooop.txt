@@ -1,0 +1,5 @@
+1. How many primitive types does Java have  Answer:7
+2. Which principle of OOP is about parent-child relationship Answer:inheritance
+3. Which operator checks if the type has a "has a relationship with the given object" Answer:instanceof
+4. How many parents can a class have in Java Answer:1
+5. How many interfaces can a class implement in Java:infinitely many

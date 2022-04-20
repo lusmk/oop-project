@@ -19,7 +19,7 @@ public class Console {
         Course calculus = new Course(major, 3);
 
             try {
-                boolean pass = calculus.checkAssignment("C:\\Users\\User\\OneDrive\\Desktop\\oop-project\\codeFiles\\src\\calculus.txt");
+                boolean pass = calculus.checkAssignment("C:\\Users\\User\\OneDrive\\Desktop\\oop-project\\codeFiles\\src\\calculus1.txt");
             } catch(Exception e) {
                 System.out.println(e.getMessage());
             }
