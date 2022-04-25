@@ -2,6 +2,7 @@ public class Student extends Person {
     private Major major;
     private int semester;
     private Degree degree;// maybe will be changed
+    private int energy;
 
     //Constructors
     //no-arg(not sure if needed)
@@ -9,12 +10,12 @@ public class Student extends Person {
         super();
         semester = 1;
         degree = Degree.UNDERGRADUATE;
-        major = new Major("Computer Science");
+        major = Major.COMPUTER_SCIENCE;
     }
 
     public Student(String name, Major major, Degree degree) {
         super(name);
-        this.major = new Major(major);
+        this.major = major;
         this.degree = degree;
         semester = 1;
     }

@@ -1,38 +1,42 @@
 import java.io.File;
 import java.util.Scanner;
 
-public class Course {
+public abstract class Course {
     //instance variables
     private Major name;
     private int credits;
     private int grade;
     //private Assignment assignment;
-    private boolean isPassed;
+    protected boolean isPassed;   //change to private if needed
+    private String location;
 
     //no-arg constructor
     public Course() {
-        name = new Major();
+        name = null;
         credits = 0;
         grade = 0;
+        location = "";
     }
 
     //second constructor
-    public Course(Major name, int credits) {
-        this.name = new Major(name);
+    public Course(Major name, int credits, String location) {
+        this.name = name;
         this.credits = credits;
-        grade = 0;
+        this.grade = 0;
+        this.location = location;
     }
 
     //copy constructor
     public Course(Course course) {
-        this.name = new Major(course.name);
+        this.name = course.name;
         this.credits = course.credits;
         this.grade = course.grade;
+        this.location = course.location;
     }
 
     //accessor for major name
     public Major getName() {
-        return new Major(this.name);
+        return name;
     }
 
     // accessor for credits
@@ -40,23 +44,13 @@ public class Course {
         return this.credits;
     }
 
-    public boolean checkAssignment(String quiz) throws Exception {
-        File file = new File(quiz);
-        Scanner sc = new Scanner(file);
-        Scanner keyboard = new Scanner(System.in);
-        while (sc.hasNextLine()) {
-            String[] arr = sc.nextLine().split(":");
-            String question = arr[0];
-            String answer = arr[1];
-            System.out.println(question);
-            String input = keyboard.nextLine();
-            if (input.equals(answer)) {
-                grade++;
-            }
-        }
-        if(grade == 5){
-            isPassed = true;
-        }
+    public int getGrade() {
+        return this.grade;
+    }
+
+    public boolean isPassed() {
         return isPassed;
     }
+
+    public abstract boolean checkAssignment(String quiz) throws Exception;
 }

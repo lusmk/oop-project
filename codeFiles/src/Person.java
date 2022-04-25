@@ -1,10 +1,8 @@
-public abstract class Person {
+public class Person {
     //mutable
     private String name;
     private String id;
     static int counter;
-
-    public enum Degree {UNDERGRADUATE, GRADUATE};
 
     //Constructors
     //no-arg(not sure is needed)
@@ -14,6 +12,7 @@ public abstract class Person {
         counter++;
     }
 
+    public enum Degree {UNDERGRADUATE, GRADUATE};
     public Person(String name) {
         this.name = name;
         id = Integer.toString(counter);

@@ -1,0 +1,5 @@
+1. What relation is called equivalence relation Answer:reflexive, symmetric, transitive
+2. True OR False gives... Answer:True
+3. If the graph does not have cycles, it is called... Answer:tree
+4. What is the cardinality of the following set; {2, 5, 6, 11, 56, 23} Answer:6
+5. What is the sum of 10 and 45 in Z7 Answer:6

@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Console {
     private boolean gameOver;
 
-    public Console(){
+    public Console() {
         gameOver = false;
     }
     public void play(){
@@ -11,15 +11,29 @@ public class Console {
         System.out.println("Please type in your name");
         Scanner sc = new Scanner(System.in);
         String name = sc.nextLine();
-        System.out.println("Please type in your major");
-        String m = "Computer Science";
-        Major major = new Major(m);
-
-        Student student = new Student(name, major, Person.Degree.UNDERGRADUATE);
-        Course calculus = new Course(major, 3);
+        Major major = null;
+        System.out.println("Please pick your major \n1." + Major.COMPUTER_SCIENCE
+                        + "\n2." + Major.DATA_SCIENCE +"\n3." + Major.ENGINEERING_SCIENCE +"\n4." +
+                Major.BUSINESS + "\n5." +Major.ENGLISH_AND_COMMUNICATIONS+
+                "\n6." +Major.POLITICS_AND_GOVERNANCE);
+        int number = sc.nextInt();
+        switch(number){
+            case 1:
+                major = Major.COMPUTER_SCIENCE;
+                break;
+            case 2:
+                major = Major.DATA_SCIENCE;
+                break;
+        }
+        String m = "Computer Science"; //TODO: Check grid added later
+        System.out.println("You have picked your major. Here are your assignments, you need to " +
+                "complete all of them to pass to the next semester");
+        Student student = new Student(name, major, Student.Degree.UNDERGRADUATE);
+        Course calculus = new Calculus1();
 
             try {
-                boolean pass = calculus.checkAssignment("C:\\Users\\User\\OneDrive\\Desktop\\oop-project\\codeFiles\\src\\calculus1.txt");
+                boolean pass = calculus.checkAssignment("codeFiles/src/calculus1.txt");
+                System.out.println("You have passed the course. Congratulations!");
             } catch(Exception e) {
                 System.out.println(e.getMessage());
             }
