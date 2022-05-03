@@ -1,3 +1,9 @@
+package Views;
+
+import Models.Characters.Student;
+import Models.Courses.Calculus1;
+import Models.Courses.Course;
+import Models.Major;
 
 import java.util.Scanner;
 
@@ -29,17 +35,20 @@ public class Console {
         String m = "Computer Science"; //TODO: Check grid added later
         System.out.println("You have picked your major. Here are your assignments, you need to " +
                 "complete all of them to pass to the next semester");
-        Student student = new Student(name, major, Student.Degree.UNDERGRADUATE);
+        Student student = new Student(name, major, Student.Degree.UNDERGRADUATE, 100);
         Course calculus = new Calculus1();
 
             try {
-                boolean pass = calculus.checkAssignment("codeFiles/src/calculus1.txt");
-                System.out.println("You have passed the course. Congratulations!");
+                boolean pass = calculus.checkAssignment("codeFiles/src/TextFiles/calculus1.txt");
+                student.assignmentEnergy(calculus);
+//                System.out.println(student.getEnergy());
+                if(pass)
+                    System.out.println("You have passed the course. Congratulations!");
+                else
+                    System.out.println("Unfortunately you failed. Good luck next time.");
             } catch(Exception e) {
                 System.out.println(e.getMessage());
             }
-
-
     }
 
     public static void main(String[] args) {

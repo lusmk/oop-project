@@ -1,9 +1,13 @@
+package Models.Courses;
+
+import Models.Major;
+
 import java.io.File;
 import java.util.Scanner;
 
-public class Calculus1 extends Course {
-    public Calculus1() {
-        super(Major.COMPUTER_SCIENCE, 3, "calculus1.txt");
+public class IntroToCS extends Course{
+    public IntroToCS() {
+        super(Major.COMPUTER_SCIENCE, 3, "introtocs.txt");
     }
     public boolean checkAssignment(String quiz) throws Exception {
         File file = new File(quiz);

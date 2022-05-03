@@ -1,3 +1,8 @@
+//package Models.Characters;
+//
+//import Models.Courses.Course;
+//import Models.Major;
+//
 //public class Instructor extends Person {
 //    Course teachingSubject;
 //

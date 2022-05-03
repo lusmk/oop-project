@@ -1,9 +1,14 @@
+package Models.Courses;
+
+import Models.Major;
+
 import java.io.File;
 import java.util.Scanner;
 
-public class IntroToOOP extends Course {
-    public IntroToOOP() {
-        super(Major.COMPUTER_SCIENCE, 3, "introtooop.txt");
+public class LinearAlgebra extends Course {
+    public LinearAlgebra() {
+
+        super(Major.COMPUTER_SCIENCE, 3, "linearalgebra.txt");
     }
     public boolean checkAssignment(String quiz) throws Exception {
         File file = new File(quiz);

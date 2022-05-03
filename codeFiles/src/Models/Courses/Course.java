@@ -1,3 +1,7 @@
+package Models.Courses;
+
+import Models.Major;
+
 import java.io.File;
 import java.util.Scanner;
 
@@ -42,6 +46,10 @@ public abstract class Course {
     // accessor for credits
     public int getCredits() {
         return this.credits;
+    }
+
+    public String getLocation() {
+        return this.location;
     }
 
     public int getGrade() {

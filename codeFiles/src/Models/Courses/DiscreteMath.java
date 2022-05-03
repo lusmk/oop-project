@@ -1,3 +1,7 @@
+package Models.Courses;
+
+import Models.Major;
+
 import java.io.File;
 import java.util.Scanner;
 

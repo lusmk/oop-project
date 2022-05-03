@@ -1,3 +1,5 @@
+package Models.Characters;
+
 public class Person {
     //mutable
     private String name;

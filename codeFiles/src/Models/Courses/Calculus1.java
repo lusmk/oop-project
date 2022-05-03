@@ -1,10 +1,15 @@
+package Models.Courses;
+
+import Models.Major;
+
 import java.io.File;
 import java.util.Scanner;
 
-public class IntroToCS extends Course{
-    public IntroToCS() {
-        super(Major.COMPUTER_SCIENCE, 3, "introtocs.txt");
+public class Calculus1 extends Course {
+    public Calculus1() {
+        super(Major.COMPUTER_SCIENCE, 3, "codeFiles/src/TextFiles/calculus1.txt");
     }
+
     public boolean checkAssignment(String quiz) throws Exception {
         File file = new File(quiz);
         Scanner sc = new Scanner(file);
@@ -25,4 +30,5 @@ public class IntroToCS extends Course{
         }
         return isPassed;
     }
+
 }
