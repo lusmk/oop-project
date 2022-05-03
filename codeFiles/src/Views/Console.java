@@ -41,6 +41,7 @@ public class Console {
             try {
                 boolean pass = calculus.checkAssignment("codeFiles/src/TextFiles/calculus1.txt");
                 student.assignmentEnergy(calculus);
+//                calculus.checkAssignment("codeFiles/src/TextFiles/calculus1.txt");
 //                System.out.println(student.getEnergy());
                 if(pass)
                     System.out.println("You have passed the course. Congratulations!");

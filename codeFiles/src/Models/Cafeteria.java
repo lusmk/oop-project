@@ -2,7 +2,7 @@ package Models;
 
 public class Cafeteria extends Place{
     public static final String[] MENU = {
-            "Burger: 50", "Pizza: 40", "Salad: 30", "Fries: 20", "Soup: 60"
+            "Burger: 6", "Pizza: 5", "Salad: 4", "Fries: 3", "Soup: 7"
     };
 
     //constructor

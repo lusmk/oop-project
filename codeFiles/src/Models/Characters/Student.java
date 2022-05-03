@@ -56,5 +56,16 @@ public class Student extends Person {
 
     public void assignmentEnergy(Course course) throws Exception {
         this.energy -= 25;
+        if(energy <= 50) {
+            /*
+            add options
+            eat
+            drink
+            sleep
+            continue working
+             */
+            System.out.println("Your energy is " + this.energy + ". Please restore your energy:");
+        }
     }
+
 }

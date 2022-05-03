@@ -2,7 +2,7 @@ package Models;
 
 public class CoffeeHouse extends Place{
     public static final String[] MENU = {
-        "Nuts Coffee: 40", "Americano: 60", "Latte: 30", "Cappuccino: 50", "Lemonade: 20"
+        "Nuts Coffee: 4", "Americano: 6", "Latte: 3", "Cappuccino: 5", "Lemonade: 2"
     };
 
     public CoffeeHouse(String name){
