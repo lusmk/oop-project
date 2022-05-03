@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class DiscreteMath extends Course {
         public DiscreteMath() {
+
             super(Major.COMPUTER_SCIENCE, 3, "discretemath.txt");
         }
         public boolean checkAssignment(String quiz) throws Exception {
