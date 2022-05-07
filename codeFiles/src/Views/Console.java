@@ -21,8 +21,8 @@ public class Console {
         Student.Major major = null;
         System.out.println("Please pick your major \n1." + Student.Major.COMPUTER_SCIENCE
                         + "\n2." + Student.Major.DATA_SCIENCE +"\n3." + Student.Major.ENGINEERING_SCIENCE +"\n4." +
-                Student.Major.BUSINESS + "\n5." + Student.Major.ENGLISH_AND_COMMUNICATIONS+
-                "\n6." + Student.Major.POLITICS_AND_GOVERNANCE);
+                Student.Major.BUSINESS + "\n5." + Student.Major.ENGLISH_COMMUNICATIONS+
+                "\n6." + Student.Major.POLITICS_GOVERNANCE);
         int number = sc.nextInt();
         switch(number){
             case 1:

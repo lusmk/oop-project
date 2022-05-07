@@ -1,13 +1,11 @@
 package Models.Characters;
 
 import Models.Courses.Course;
-import Models.Major;
-import Models.Place;
 
 public class Student extends Person {
     public enum Major {
         COMPUTER_SCIENCE, DATA_SCIENCE, ENGINEERING_SCIENCE,
-        BUSINESS, ENGLISH_AND_COMMUNICATIONS, POLITICS_AND_GOVERNANCE}
+        BUSINESS, ENGLISH_COMMUNICATIONS, POLITICS_GOVERNANCE}
 
     private Major major;
     private int semester;
