@@ -1,8 +1,8 @@
-package Models;
-
-public enum Major {
-    COMPUTER_SCIENCE, DATA_SCIENCE, ENGINEERING_SCIENCE,
-    BUSINESS, ENGLISH_AND_COMMUNICATIONS, POLITICS_AND_GOVERNANCE
+//package Models;
+//
+//public enum Major {
+//    COMPUTER_SCIENCE, DATA_SCIENCE, ENGINEERING_SCIENCE,
+//    BUSINESS, ENGLISH_AND_COMMUNICATIONS, POLITICS_AND_GOVERNANCE}
 //    // instance variable to keep the name of the major
 //    private String name;
 //
@@ -25,4 +25,3 @@ public enum Major {
 //    public String getName() {
 //        return this.name;
 //    }
-}

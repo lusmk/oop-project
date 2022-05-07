@@ -1,13 +1,13 @@
 package Models.Courses;
 
-import Models.Major;
+import Models.Characters.Student;
 
 import java.io.File;
 import java.util.Scanner;
 
 public abstract class Course {
     //instance variables
-    private Major name;
+    private Student.Major name;
     private int credits;
     private int grade;
     //private Assignment assignment;
@@ -23,7 +23,7 @@ public abstract class Course {
     }
 
     //second constructor
-    public Course(Major name, int credits, String location) {
+    public Course(Student.Major name, int credits, String location) {
         this.name = name;
         this.credits = credits;
         this.grade = 0;
@@ -39,7 +39,7 @@ public abstract class Course {
     }
 
     //accessor for major name
-    public Major getName() {
+    public Student.Major getName() {
         return name;
     }
 

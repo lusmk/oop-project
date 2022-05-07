@@ -1,13 +1,13 @@
 package Models.Courses;
 
-import Models.Major;
-
+import Models.Characters.Student;
 import java.io.File;
 import java.util.Scanner;
 
 public class IntroToOOP extends Course {
     public IntroToOOP() {
-        super(Major.COMPUTER_SCIENCE, 3, "introtooop.txt");
+        super(Student.Major.COMPUTER_SCIENCE, 3,
+                "codeFiles/src/TextFiles/introtooop.txt");
     }
     public boolean checkAssignment(String quiz) throws Exception {
         File file = new File(quiz);

@@ -5,6 +5,10 @@ import Models.Major;
 import Models.Place;
 
 public class Student extends Person {
+    public enum Major {
+        COMPUTER_SCIENCE, DATA_SCIENCE, ENGINEERING_SCIENCE,
+        BUSINESS, ENGLISH_AND_COMMUNICATIONS, POLITICS_AND_GOVERNANCE}
+
     private Major major;
     private int semester;
     private Degree degree;// maybe will be changed

@@ -1,14 +1,15 @@
 package Models.Courses;
 
-import Models.Major;
-
+import Models.Characters.Student;
 import java.io.File;
 import java.util.Scanner;
 
 public class Calculus1 extends Course {
     private static int questionsAnswered = 0;
+
     public Calculus1() {
-        super(Major.COMPUTER_SCIENCE, 3, "codeFiles/src/TextFiles/calculus1.txt");
+        super(Student.Major.COMPUTER_SCIENCE, 3,
+                "codeFiles/src/TextFiles/calculus1.txt");
     }
 
     public boolean checkAssignment(String quiz) throws Exception {
