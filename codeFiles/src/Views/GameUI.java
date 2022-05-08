@@ -1,6 +1,7 @@
 package Views;
 
 import Models.Characters.Student;
+import Models.Courses.BusinessMath1;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,6 +11,7 @@ import java.awt.event.ActionListener;
 public class GameUI extends JFrame {
     public static final int WIDTH = 800;
     public static final int HEIGHT = 800;
+    private String studentName;
 
     public GameUI() {
         super("AUA Student Life Simulator");
@@ -54,6 +56,7 @@ public class GameUI extends JFrame {
         JLabel majorText = new JLabel("Please select your major");
         welcomePanel.add(majorText);
 
+        // major panel
         MajorButton CS = new MajorButton(Student.Major.COMPUTER_SCIENCE,50,400);
         MajorButton DS = new MajorButton(Student.Major.DATA_SCIENCE,100,400);
         MajorButton BUS = new MajorButton(Student.Major.BUSINESS,150,400);
@@ -70,6 +73,41 @@ public class GameUI extends JFrame {
         majorPanel.add(PG);
         welcomePanel.add(majorPanel);
 
+        //CS semester 1 panel
+        CourseButton Calculus1 = new CourseButton("Calculus1", 50, 400);
+        CourseButton DiscreteMath = new CourseButton("Discrete Math",100,400);
+        CourseButton IntroToCS = new CourseButton("Intro to CS",150,400);
+
+        submitNameButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                studentName = nameField.getText();
+            }
+        });
+
+        // student panel
+        JPanel studentProfile = new JPanel(new GridLayout(3, 1));
+        JLabel studentName1 = new JLabel(studentName);
+        JLabel studentMajor = new JLabel();
+        JLabel studentAvatar = new JLabel(new ImageIcon("codeFiles/src/Views/avatar.png"));
+        studentAvatar.setPreferredSize(new Dimension(100, 100));
+        studentProfile.add(studentName1);
+        studentProfile.add(studentMajor);
+        studentProfile.add(studentAvatar);
+
+        JPanel CSPanel = new JPanel(new GridLayout(4, 1));
+        CSPanel.add(studentProfile);
+        CSPanel.add(Calculus1);
+        CSPanel.add(DiscreteMath);
+        CSPanel.add(IntroToCS);
+
+        // business semester 1 panel
+        CourseButton BusinessMath1 = new CourseButton("BusinessMath1", 50, 400);
+        CourseButton IntroToBusiness = new CourseButton("Intro To Business",100,400);
+
+        JPanel BusinessPanel = new JPanel(new GridLayout(2, 1));
+        BusinessPanel.add(BusinessMath1);
+        BusinessPanel.add(IntroToBusiness);
+
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 startingPanel.setVisible(false);
@@ -77,13 +115,22 @@ public class GameUI extends JFrame {
                 add(welcomePanel);
             }
         });
-        final String[] studentName = new String[1];
-        submitNameButton.addActionListener(new ActionListener() {
+
+        CS.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-              studentName[0] = nameField.getText(); //TODO: suspicious erevuyt
+                welcomePanel.setVisible(false);
+                CSPanel.setVisible(true);
+                add(CSPanel);
             }
         });
 
+        BUS.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                welcomePanel.setVisible(false);
+                BusinessPanel.setVisible(true);
+                add(BusinessPanel);
+            }
+        });
 
 
     }
