@@ -4,6 +4,8 @@ import Models.Characters.Student;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CourseButton extends JButton {
     private String courseName;
@@ -18,5 +20,10 @@ public class CourseButton extends JButton {
         setFocusable(false);
         setFont(new Font("Comic Sans", Font.BOLD, 25));
         setForeground(Color.WHITE);
+        addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 }

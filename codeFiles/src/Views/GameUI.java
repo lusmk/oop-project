@@ -7,29 +7,30 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 public class GameUI extends JFrame {
-    public static final int WIDTH = 800;
-    public static final int HEIGHT = 800;
+    public static final int WIDTH = 740;
+    public static final int HEIGHT = 410;
     private String studentName;
 
-    public GameUI() {
+    public GameUI() throws IOException {
         super("AUA Student Life Simulator");
 
         //jframe
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        getContentPane().setBackground(Color.PINK);
+        setResizable(false);
 
         //panel for start
-        JPanel startingPanel = new JPanel();
-        startingPanel.setBackground(Color.PINK);
-        startingPanel.setLayout(null);
+        JPanelWithBackground startingPanel = new JPanelWithBackground("codeFiles/src/Views/cover.jpeg");
+        startingPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 270));
 
         //play button
         JButton button = new JButton("PLAY");
-        button.setBounds(550, 300, 220, 30);
-        button.setBackground(Color.GREEN);
+        // button.setBounds(550, 300, 220, 30);
+        button.setBackground(new Color(1,60,94,255));
         button.setFocusable(false);
         button.setFont(new Font("Comic Sans", Font.BOLD, 25));
         button.setForeground(Color.WHITE);
@@ -78,21 +79,28 @@ public class GameUI extends JFrame {
         CourseButton DiscreteMath = new CourseButton("Discrete Math",100,400);
         CourseButton IntroToCS = new CourseButton("Intro to CS",150,400);
 
-        submitNameButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                studentName = nameField.getText();
-            }
-        });
-
         // student panel
-        JPanel studentProfile = new JPanel(new GridLayout(3, 1));
-        JLabel studentName1 = new JLabel(studentName);
-        JLabel studentMajor = new JLabel();
+        JLabel studentMajor = new JLabel("Major name: " + CS.getText());
+        JPanel studentProfile = new JPanel(new GridLayout(1, 2));
         JLabel studentAvatar = new JLabel(new ImageIcon("codeFiles/src/Views/avatar.png"));
         studentAvatar.setPreferredSize(new Dimension(100, 100));
-        studentProfile.add(studentName1);
-        studentProfile.add(studentMajor);
         studentProfile.add(studentAvatar);
+
+        //panel for name and major
+        JPanel studentNameMajor = new JPanel(new GridLayout(2, 1));
+
+        submitNameButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JButton source = (JButton) e.getSource();
+                source.setEnabled(false);
+                source.setBackground(Color.GRAY);
+                studentName = nameField.getText();
+                JLabel studentName1 = new JLabel(studentName);
+                studentNameMajor.add(studentName1);
+            }
+        });
+        studentNameMajor.add(studentMajor);
+        studentProfile.add(studentNameMajor);
 
         JPanel CSPanel = new JPanel(new GridLayout(4, 1));
         CSPanel.add(studentProfile);
@@ -104,7 +112,8 @@ public class GameUI extends JFrame {
         CourseButton BusinessMath1 = new CourseButton("BusinessMath1", 50, 400);
         CourseButton IntroToBusiness = new CourseButton("Intro To Business",100,400);
 
-        JPanel BusinessPanel = new JPanel(new GridLayout(2, 1));
+        JPanel BusinessPanel = new JPanel(new GridLayout(3, 1));
+        BusinessPanel.add(studentProfile);
         BusinessPanel.add(BusinessMath1);
         BusinessPanel.add(IntroToBusiness);
 
@@ -131,7 +140,5 @@ public class GameUI extends JFrame {
                 add(BusinessPanel);
             }
         });
-
-
     }
 }
