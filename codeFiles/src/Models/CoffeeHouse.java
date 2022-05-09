@@ -10,7 +10,8 @@ public class CoffeeHouse extends Place{
     }
 
     public void getOrder(){
-        System.out.println("Hi, I am " + this.getWorkersName() + ". What drink would you like?");
+        System.out.println("Hi, I am " + this.getWorkersName()
+                + ". What drink would you like?");
     }
 
 //    public static void main(String[] args) {

@@ -18,7 +18,7 @@ public class EnergyPanel extends JPanel {
         add(cafeteriaButton);
 
         JButton coffeeHouseButton = new JButton();
-        ImageIcon coffeeHouse = new ImageIcon("codeFiles/src/Views/cofeehouse.jpg");
+        ImageIcon coffeeHouse = new ImageIcon("codeFiles/src/Views/coffeehouse.jpg");
         Image imageTemp = coffeeHouse.getImage();
         Image newCoffeeHouseImage = imageTemp.getScaledInstance(70, 60,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
         coffeeHouse = new ImageIcon(newCoffeeHouseImage);
