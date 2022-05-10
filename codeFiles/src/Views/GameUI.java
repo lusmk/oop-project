@@ -119,6 +119,8 @@ public class GameUI extends JFrame {
             }
         });
 
+        EnergyPanel energyButtons = new EnergyPanel();
+        studentProfile.add(energyButtons);
         CS.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 CSPanel.add(studentProfile);
