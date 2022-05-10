@@ -31,7 +31,6 @@ public class Calculus1 extends Course {
                 if (input.equals(answer)) {
                     grade++;
                 }
-
         }
         if(grade == 5){
             isPassed = true;

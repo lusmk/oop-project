@@ -1,7 +1,6 @@
 package Views;
 
 import Models.Characters.Student;
-import Models.Courses.BusinessMath1;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class GameUI extends JFrame {
     public static final int WIDTH = 740;
@@ -29,7 +29,7 @@ public class GameUI extends JFrame {
 
         //play button
         JButton button = new JButton("PLAY");
-        // button.setBounds(550, 300, 220, 30);
+//        button.setBounds(550, 300, 220, 30);
         button.setBackground(new Color(1,60,94,255));
         button.setFocusable(false);
         button.setFont(new Font("Comic Sans", Font.BOLD, 25));
@@ -103,19 +103,13 @@ public class GameUI extends JFrame {
         studentProfile.add(studentNameMajor);
 
         JPanel CSPanel = new JPanel(new GridLayout(4, 1));
-        CSPanel.add(studentProfile);
-        CSPanel.add(Calculus1);
-        CSPanel.add(DiscreteMath);
-        CSPanel.add(IntroToCS);
+
 
         // business semester 1 panel
-        CourseButton BusinessMath1 = new CourseButton("BusinessMath1", 50, 400);
-        CourseButton IntroToBusiness = new CourseButton("Intro To Business",100,400);
+//        CourseButton BusinessMath1 = new CourseButton("BusinessMath1", 50, 400);
+//        CourseButton IntroToBusiness = new CourseButton("Intro To Business",100,400);
 
-        JPanel BusinessPanel = new JPanel(new GridLayout(3, 1));
-        BusinessPanel.add(studentProfile);
-        BusinessPanel.add(BusinessMath1);
-        BusinessPanel.add(IntroToBusiness);
+//        JPanel BusinessPanel = new JPanel(new GridLayout(3, 1));
 
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -127,18 +121,25 @@ public class GameUI extends JFrame {
 
         CS.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                CSPanel.add(studentProfile);
+                CSPanel.add(Calculus1);
+                CSPanel.add(DiscreteMath);
+                CSPanel.add(IntroToCS);
                 welcomePanel.setVisible(false);
                 CSPanel.setVisible(true);
                 add(CSPanel);
             }
         });
 
-        BUS.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                welcomePanel.setVisible(false);
-                BusinessPanel.setVisible(true);
-                add(BusinessPanel);
-            }
-        });
+//        BUS.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                BusinessPanel.add(studentProfile);
+//                BusinessPanel.add(BusinessMath1);
+//                BusinessPanel.add(IntroToBusiness);
+//                welcomePanel.setVisible(false);
+//                BusinessPanel.setVisible(true);
+//                add(BusinessPanel);
+//            }
+//        });
     }
 }
