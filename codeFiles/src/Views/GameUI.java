@@ -9,8 +9,10 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 public class GameUI extends JFrame {
     public static final int WIDTH = 740;
@@ -158,7 +160,7 @@ public class GameUI extends JFrame {
 //        });
     }
     private class Calculus1Test extends JPanel {
-        private static int grade;
+        private static int grade = 0;
         public Calculus1Test() throws FileNotFoundException {
             setSize(WIDTH, HEIGHT);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -168,17 +170,38 @@ public class GameUI extends JFrame {
             File file = new File("codeFiles/src/TextFiles/calculus1.txt");
             Scanner sc = new Scanner(file);
 
+            ArrayList<String> questions = new ArrayList<>(5);
+            ArrayList<String> answers = new ArrayList<>(5);
             while (sc.hasNextLine()) {
                 String[] arr = sc.nextLine().split(":");
                 String question = arr[0];
-                JLabel questionField = new JLabel(question);
-                this.add(questionField);
-                JTextField answerField = new JTextField();;
-                this.add(answerField);
-                if(answerField.getText().equals(arr[1])) {
-                    grade++;
-                }
+                questions.add(question);
+                String answer = arr[1];
+                answers.add(answer);
             }
+
+            JLabel question1 = new JLabel(questions.get(0));
+            add(question1);
+            JTextField answer1 = new JTextField();
+            add(answer1);
+            JLabel question2 = new JLabel(questions.get(1));
+            add(question2);
+            JTextField answer2 = new JTextField();
+            add(answer2);
+            JLabel question3 = new JLabel(questions.get(2));
+            add(question3);
+            JTextField answer3 = new JTextField();
+            add(answer3);
+            JLabel question4 = new JLabel(questions.get(3));
+            add(question4);
+            JTextField answer4 = new JTextField();
+            add(answer4);
+            JLabel question5 = new JLabel(questions.get(4));
+            add(question5);
+            JTextField answer5 = new JTextField();
+            add(answer5);
+
+
 
             JFrame gradePanel = new JFrame();
             gradePanel.setSize(740, 410);
@@ -200,6 +223,30 @@ public class GameUI extends JFrame {
 
             submit.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
+                    if(!(answer1.getText().equals(""))) {
+                        if(answer1.getText().equals(answers.get(0)))
+                            grade++;
+                    }
+
+                    if(!(answer2.getText().equals(""))) {
+                        if(answer2.getText().equals(answers.get(1)))
+                            grade++;
+                    }
+
+                    if(!(answer3.getText().equals(""))) {
+                        if(answer3.getText().equals(answers.get(2)))
+                            grade++;
+                    }
+
+                    if(!(answer4.getText().equals(""))) {
+                        if(answer4.getText().equals(answers.get(3)))
+                            grade++;
+                    }
+
+                    if(!(answer5.getText().equals(""))) {
+                        if(answer5.getText().equals(answers.get(4)))
+                            grade++;
+                    }
                     setVisible(false);
                     gradePanel.setVisible(true);
                 }
