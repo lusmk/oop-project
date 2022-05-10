@@ -101,7 +101,6 @@ public class GameUI extends JFrame {
         });
         studentNameMajor.add(studentMajor);
         studentProfile.add(studentNameMajor);
-
         JPanel CSPanel = new JPanel(new GridLayout(4, 1));
 
 
@@ -132,6 +131,7 @@ public class GameUI extends JFrame {
                 add(CSPanel);
             }
         });
+
 
 //        BUS.addActionListener(new ActionListener() {
 //            public void actionPerformed(ActionEvent e) {
