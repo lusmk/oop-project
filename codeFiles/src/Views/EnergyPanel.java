@@ -1,6 +1,7 @@
 package Views;
 
 import Models.Cafeteria;
+import Models.CoffeeHouse;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,7 +46,7 @@ public class EnergyPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 JFrame cafeteria = new JFrame("Cafeteria");
                 cafeteria.setSize(GameUI.WIDTH, GameUI.HEIGHT);
-                cafeteria.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                cafeteria.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                 cafeteria.setResizable(false);
                 cafeteria.setLayout(new GridLayout(5,1));
                 cafeteria.getContentPane().setBackground(new Color(204,255,204));
@@ -64,20 +65,69 @@ public class EnergyPanel extends JPanel {
                 cafeteria.add(labels);
                 JPanel menu = new JPanel();
                 menu.setLayout(new GridLayout(3,2));
-                JLabel j;
+                JButton menuItem;
                 for(int i = 0; i < Cafeteria.MENU.length; i++){
-                    j = new JLabel(Cafeteria.MENU[i]+"%",SwingConstants.CENTER);
-                    j.setFont(new Font("Serif", Font.BOLD, 15));
+                    menuItem = new JButton(Cafeteria.MENU[i]+"%");
+                    menuItem.setBackground(new Color(204,255,204));
+                    menuItem.setFont(new Font("Serif", Font.PLAIN, 20));
+                    menuItem.setFocusable(false);
                     if(i==2) {
-                        j = new JLabel(Cafeteria.MENU[i]+"%",SwingConstants.CENTER);
-                        j.setFont(new Font("Serif", Font.BOLD, 15));
+                        menuItem = new JButton(Cafeteria.MENU[i]+"%");
+                        menuItem.setFont(new Font("Serif",  Font.PLAIN, 20));
+                        menuItem.setFocusable(false);
+                        menuItem.setBackground(new Color(204,255,204));
                     }
-                    menu.add(j);
+                    menu.add(menuItem);
                 }
                 cafeteria.add(menu);
                 cafeteria.add(new JPanel());
                 cafeteria.setVisible(true);
             }
         });
+
+        coffeeHouseButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JFrame coffeehouse = new JFrame("Cafeteria");
+                coffeehouse.setSize(GameUI.WIDTH, GameUI.HEIGHT);
+                coffeehouse.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                coffeehouse.setResizable(false);
+                coffeehouse.setLayout(new GridLayout(5,1));
+                coffeehouse.getContentPane().setBackground(new Color(255,102,102));
+                ImageIcon logoImage = new ImageIcon("codeFiles/src/Views/coffeehouse.jpg");
+                Image image = logoImage.getImage();
+                Image newCafeteriaImage = image.getScaledInstance(70, 60,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+                logoImage = new ImageIcon(newCafeteriaImage);
+                JLabel logo = new JLabel(logoImage);
+                coffeehouse.add(logo);
+                JPanel labels = new JPanel();
+                JLabel welcomeText = new JLabel("Welcome to Coffeehouse. Here you can enjoy the most " +
+                        "delicious coffee in university and recover your energy for being able to study. ");
+                labels.add(welcomeText);
+                JLabel offer = new JLabel("Below you can see the menu. Enjoy your coffee!");
+                labels.add(offer);
+                coffeehouse.add(labels);
+                JPanel menu = new JPanel();
+                menu.setLayout(new GridLayout(3,2));
+                JButton menuItem;
+                for(int i = 0; i < CoffeeHouse.MENU.length; i++){
+                    menuItem = new JButton(CoffeeHouse.MENU[i]+"%");
+                    menuItem.setFont(new Font("Serif", Font.PLAIN, 20));
+                    menuItem.setFocusable(false);
+                    if(i==2) {
+                        menuItem = new JButton(CoffeeHouse.MENU[i]+"%");
+                        menuItem.setFont(new Font("Serif",  Font.PLAIN, 20));
+                        menuItem.setFocusable(false);
+                    }
+                    menu.add(menuItem);
+                }
+                coffeehouse.add(menu);
+                coffeehouse.add(new JPanel());
+                coffeehouse.setVisible(true);
+            }
+        });
     }
-}
+    }
+
+
+
+
