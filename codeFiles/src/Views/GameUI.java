@@ -103,7 +103,6 @@ public class GameUI extends JFrame {
         });
         studentNameMajor.add(studentMajor);
         studentProfile.add(studentNameMajor);
-
         JPanel CSPanel = new JPanel(new GridLayout(4, 1));
 
 
@@ -121,6 +120,8 @@ public class GameUI extends JFrame {
             }
         });
 
+        EnergyPanel energyButtons = new EnergyPanel();
+        studentProfile.add(energyButtons);
         CS.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 CSPanel.add(studentProfile);
