@@ -19,7 +19,6 @@ public abstract class Place {
         }
     }
 
-    //TODO: maybe use clone later
 //    public abstract String[] getMenu();
 
     //abstract method for seeing the menu

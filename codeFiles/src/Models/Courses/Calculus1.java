@@ -37,5 +37,4 @@ public class Calculus1 extends Course {
         }
         return isPassed;
     }
-
 }

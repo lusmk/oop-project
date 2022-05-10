@@ -1,6 +1,10 @@
 package Models.Characters;
 
+import Models.Cafeteria;
+import Models.CoffeeHouse;
 import Models.Courses.Course;
+
+import java.util.Scanner;
 
 public class Student extends Person {
     public enum Major {
@@ -39,7 +43,7 @@ public class Student extends Person {
     }
 
 
-    //getters
+    //accessors
     public Major getMajor() {
         return this.major;
     }
@@ -56,18 +60,55 @@ public class Student extends Person {
         return this.energy;
     }
 
-    public void assignmentEnergy(Course course) throws Exception {
-        this.energy -= 25;
-        if(energy <= 50) {
-            /*
-            add options
-            eat
-            drink
-            sleep
-            continue working
-             */
-            System.out.println("Your energy is " + this.energy + ". Please restore your energy:");
+    // methods for gaining energy
+    public int eatOrDrink(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1. Cafeteria 2. Coffeehouse");
+        int number = sc.nextInt();
+        if(number == 1){
+            for(int i = 0; i < Cafeteria.MENU.length; i++){
+                System.out.println(Cafeteria.MENU[i]);
+            }
+        } else if(number == 2) {
+            for (int i = 0; i < CoffeeHouse.MENU.length; i++) {
+                System.out.println(CoffeeHouse.MENU[i]);
+            }
+        }else System.out.println("Input 1 or 2");
+        String[] menu = Cafeteria.MENU;
+        int[] energyGain = new int[menu.length];
+        int order = sc.nextInt();
+        for(int i = 1; i <= menu.length; i++){
+            if(i == order) {
+                energyGain[i - 1] = Integer.parseInt(menu[i - 1].split(": ")[1]);
+                energy += energyGain[i - 1];
+            }
         }
+        return energy;
     }
 
+    public int sleep(){
+        energy = 100;
+        return energy;
+    }
+
+    public void assignmentEnergy() {
+        this.energy -= 20;
+       Scanner sc = new Scanner(System.in);
+        if (energy <= 90) {
+            System.out.println("Your energy is " + this.energy + ". Please restore your energy: " +
+                    "\n 1. go to Cafeteria or CoffeeHouse \n 2. go to sleep \n 3. continue working");
+            int number = sc.nextInt();
+            switch (number) {
+                case 1:
+                    energy = eatOrDrink();
+                    break;
+                case 2:
+                    energy = sleep();
+                    break;
+                case 3:
+                    energy = this.getEnergy();
+                    break;
+            }
+        }
+    }
 }

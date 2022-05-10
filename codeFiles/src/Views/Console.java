@@ -3,6 +3,8 @@ package Views;
 import Models.Characters.Student;
 import Models.Courses.Calculus1;
 import Models.Courses.Course;
+import Models.Courses.DiscreteMath;
+import Models.Courses.IntroToCS;
 
 
 import java.util.Scanner;
@@ -13,18 +15,18 @@ public class Console {
     public Console() {
         gameOver = false;
     }
-    public void play(){
+    public void play() {
         System.out.println("Hello! Welcome to AUA.");
         System.out.println("Please type in your name");
         Scanner sc = new Scanner(System.in);
         String name = sc.nextLine();
         Student.Major major = null;
         System.out.println("Please pick your major \n1." + Student.Major.COMPUTER_SCIENCE
-                        + "\n2." + Student.Major.DATA_SCIENCE +"\n3." + Student.Major.ENGINEERING_SCIENCE +"\n4." +
-                Student.Major.BUSINESS + "\n5." + Student.Major.ENGLISH_COMMUNICATIONS+
+                + "\n2." + Student.Major.DATA_SCIENCE + "\n3." + Student.Major.ENGINEERING_SCIENCE + "\n4." +
+                Student.Major.BUSINESS + "\n5." + Student.Major.ENGLISH_COMMUNICATIONS +
                 "\n6." + Student.Major.POLITICS_GOVERNANCE);
         int number = sc.nextInt();
-        switch(number){
+        switch (number) {
             case 1:
                 major = Student.Major.COMPUTER_SCIENCE;
                 break;
@@ -40,20 +42,55 @@ public class Console {
 
             try {
                 boolean pass = calculus.checkAssignment("codeFiles/src/TextFiles/calculus1.txt");
-                student.assignmentEnergy(calculus);
+                student.assignmentEnergy();
 //                calculus.checkAssignment("codeFiles/src/TextFiles/calculus1.txt");
 //                System.out.println(student.getEnergy());
-                if(pass)
+                if(pass) {
                     System.out.println("You have passed the course. Congratulations!");
-                else
+                    Course discreteMath = new DiscreteMath();
+                    try {
+                        pass = discreteMath.checkAssignment("codeFiles/src/TextFiles/discretemath.txt");
+                        student.assignmentEnergy();
+//                calculus.checkAssignment("codeFiles/src/TextFiles/calculus1.txt");
+//                System.out.println(student.getEnergy());
+                        if(pass) {
+                            System.out.println("You have passed the course. Congratulations!");
+                            Course introToCS= new IntroToCS();
+                        }
+                        else
+                            System.out.println("Unfortunately you failed. Good luck next time.");
+                    } catch(Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                else {
                     System.out.println("Unfortunately you failed. Good luck next time.");
+                    pass = calculus.checkAssignment("codeFiles/src/TextFiles/calculus1.txt");
+                    student.assignmentEnergy();;
+                }
             } catch(Exception e) {
                 System.out.println(e.getMessage());
             }
     }
 
-    public static void main(String[] args) {
-        Console game = new Console();
-        game.play();
-    }
+//        public void fillQuiz (Course current, Course next, Student student){
+//            try {
+//                boolean pass = current.checkAssignment("codeFiles/src/TextFiles/calculus1.txt");
+//                student.assignmentEnergy();
+////                calculus.checkAssignment("codeFiles/src/TextFiles/calculus1.txt");
+////                System.out.println(student.getEnergy());
+//                if (pass) {
+//                    System.out.println("You have passed the course. Congratulations!");
+//                    //go to the next course
+//                } else
+//                    System.out.println("Unfortunately you failed. Good luck next time.");
+//            } catch (Exception e) {
+//                System.out.println(e.getMessage());
+//            }
+//        }
+        public static void main (String[]args){
+            Console game = new Console();
+            game.play();
+        }
+
 }
