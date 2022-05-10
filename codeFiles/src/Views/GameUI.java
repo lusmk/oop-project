@@ -7,7 +7,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GameUI extends JFrame {
@@ -131,6 +133,18 @@ public class GameUI extends JFrame {
             }
         });
 
+        Calculus1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Calculus1Test test = new Calculus1Test();
+                    add(test);
+                    CSPanel.setVisible(false);
+                } catch (FileNotFoundException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+
 //        BUS.addActionListener(new ActionListener() {
 //            public void actionPerformed(ActionEvent e) {
 //                BusinessPanel.add(studentProfile);
@@ -141,5 +155,60 @@ public class GameUI extends JFrame {
 //                add(BusinessPanel);
 //            }
 //        });
+    }
+    private class Calculus1Test extends JPanel {
+        private static int grade;
+        public Calculus1Test() throws FileNotFoundException {
+            setSize(WIDTH, HEIGHT);
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setResizable(false);
+            setLayout(new GridLayout(12, 1));
+
+            File file = new File("codeFiles/src/TextFiles/calculus1.txt");
+            Scanner sc = new Scanner(file);
+
+            while (sc.hasNextLine()) {
+                String[] arr = sc.nextLine().split(":");
+                String question = arr[0];
+                JLabel questionField = new JLabel(question);
+                this.add(questionField);
+                JTextField answerField = new JTextField();;
+                this.add(answerField);
+                if(answerField.getText().equals(arr[1])) {
+                    grade++;
+                }
+            }
+
+            JFrame gradePanel = new JFrame();
+            gradePanel.setSize(740, 410);
+            gradePanel.setLayout(new GridLayout(2, 1));
+            gradePanel.setBackground(Color.pink);
+            JLabel studentGrade = new JLabel("Your grade is " + grade);
+            JLabel pass;
+            if(grade == 5)
+                pass = new JLabel("Congratulations, you passed the course");
+            else
+                pass = new JLabel("You failed the course. Good luck next time.");
+            gradePanel.add(studentGrade);
+            gradePanel.add(pass);
+
+            JButton submit = new JButton("Submit");
+            this.add(submit);
+            JButton back = new JButton("Back to your profile");
+            this.add(back);
+
+            submit.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    setVisible(false);
+                    gradePanel.setVisible(true);
+                }
+            });
+
+            back.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+
+                }
+            });
+        }
     }
 }
