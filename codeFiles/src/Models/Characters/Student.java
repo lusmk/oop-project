@@ -2,6 +2,7 @@ package Models.Characters;
 
 import Models.Places.Cafeteria;
 import Models.Places.CoffeeHouse;
+import Models.Places.Place;
 
 import java.util.Scanner;
 
@@ -73,17 +74,21 @@ public class Student{
     public int eatOrDrink(){
         Scanner sc = new Scanner(System.in);
         System.out.println("1. Cafeteria 2. Coffeehouse");
+        Place place;
+        String[] menu = null;
         int number = sc.nextInt();
         if(number == 1){
-            for(int i = 0; i < Cafeteria.MENU.length; i++){
-                System.out.println(Cafeteria.MENU[i]);
-            }
+            place = new Cafeteria("Jennie");
+            place.getOrder();
+            menu = Cafeteria.MENU;
+            place.showMenu(menu);
         } else if(number == 2) {
-            for (int i = 0; i < CoffeeHouse.MENU.length; i++) {
-                System.out.println(CoffeeHouse.MENU[i]);
-            }
+            place = new CoffeeHouse("Lili");
+            place.getOrder();
+            menu = CoffeeHouse.MENU;
+            place.showMenu(menu);
         }else System.out.println("Input 1 or 2");
-        String[] menu = Cafeteria.MENU;
+
         int[] energyGain = new int[menu.length];
         int order = sc.nextInt();
         for(int i = 1; i <= menu.length; i++){
@@ -92,6 +97,7 @@ public class Student{
                 energy += energyGain[i - 1];
             }
         }
+        System.out.println("Your energy now is " + energy);
         return energy;
     }
 
