@@ -65,7 +65,7 @@ public class GameUI extends JFrame {
 
 
             JFrame gradePanel = new JFrame();
-            gradePanel.setSize(740, 410);
+            gradePanel.setSize(300, 300);
             gradePanel.setLayout(new GridLayout(2, 1));
             JButton submit = new JButton("Submit");
             this.add(submit);
