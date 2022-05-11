@@ -1,0 +1,5 @@
+1. Last week Janna earned 40 QR working part-time. This week she earned 30 QR. What is the percent of decrease? Answer:25
+2. The point where a straight line cuts the x-axis is called Answer:X-intercept
+3. The variance of the 3, 3, 3, 3, 3 is Answer:0
+4. For a data, if mean > median then its distribution is Answer:Left asymmetrical
+5. My estimated regression line is Y = 17 + 4X. The intercept is equal to Answer:17

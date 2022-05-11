@@ -1,0 +1,5 @@
+1. Daily rainfall is an example of what sort of data? Answer:Continuous
+2. The distance that a cyclist rides each day is what sort of data? Answer:Continuous
+3. The number of times that a cyclist rides over 45 km each day is what sort of data Answer:Discrete
+4. Age is classified as Answer:Ratio data
+5. Gender is categorized as Answer:Nominal data

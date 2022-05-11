@@ -216,14 +216,6 @@ public class GameUI extends JFrame {
             gradePanel.setSize(740, 410);
             gradePanel.setLayout(new GridLayout(2, 1));
             gradePanel.setBackground(Color.pink);
-            JLabel studentGrade = new JLabel("Your grade is " + grade);
-            JLabel pass;
-            if(grade == 5)
-                pass = new JLabel("Congratulations, you passed the course");
-            else
-                pass = new JLabel("You failed the course. Good luck next time.");
-            gradePanel.add(studentGrade);
-            gradePanel.add(pass);
 
             JButton submit = new JButton("Submit");
             this.add(submit);
@@ -232,30 +224,44 @@ public class GameUI extends JFrame {
 
             submit.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    if(!(answer1.getText().equals(""))) {
-                        if(answer1.getText().equals(answers.get(0)))
+                    String answers1 = answer1.getText();
+                    String answers2 = answer2.getText();
+                    String answers3 = answer3.getText();
+                    String answers4 = answer4.getText();
+                    String answers5 = answer5.getText();
+
+                    if(!(answers1.equals(""))) {
+                        if(answers1.equals(answers.get(0)))
                             grade++;
                     }
 
-                    if(!(answer2.getText().equals(""))) {
-                        if(answer2.getText().equals(answers.get(1)))
+                    if(!(answers2.equals(""))) {
+                        if(answers2.equals(answers.get(1)))
                             grade++;
                     }
 
-                    if(!(answer3.getText().equals(""))) {
-                        if(answer3.getText().equals(answers.get(2)))
+                    if(!(answers3.equals(""))) {
+                        if(answers3.equals(answers.get(2)))
                             grade++;
                     }
 
-                    if(!(answer4.getText().equals(""))) {
-                        if(answer4.getText().equals(answers.get(3)))
+                    if(!(answers4.equals(""))) {
+                        if(answers4.equals(answers.get(3)))
                             grade++;
                     }
 
-                    if(!(answer5.getText().equals(""))) {
-                        if(answer5.getText().equals(answers.get(4)))
+                    if(!(answers5.equals(""))) {
+                        if(answers5.equals(answers.get(4)))
                             grade++;
                     }
+                    JLabel studentGrade = new JLabel("Your grade is " + grade);
+                    JLabel pass;
+                    if(grade == 5)
+                        pass = new JLabel("Congratulations, you passed the course");
+                    else
+                        pass = new JLabel("You failed the course. Good luck next time.");
+                    gradePanel.add(studentGrade);
+                    gradePanel.add(pass);
                     setVisible(false);
                     gradePanel.setVisible(true);
                 }
