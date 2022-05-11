@@ -13,7 +13,7 @@ public class EnergyPanel extends JPanel {
     public EnergyPanel(){
         super(new GridLayout(1,3));
         JButton cafeteriaButton = new JButton();
-        ImageIcon cafeteria = new ImageIcon("codeFiles/src/Views/aries.png");
+        ImageIcon cafeteria = new ImageIcon("codeFiles/src/Views/images/aries.png");
         Image image = cafeteria.getImage();
         Image newCafeteriaImage = image.getScaledInstance(70, 60,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
         cafeteria = new ImageIcon(newCafeteriaImage);
@@ -23,7 +23,7 @@ public class EnergyPanel extends JPanel {
         add(cafeteriaButton);
 
         JButton coffeeHouseButton = new JButton();
-        ImageIcon coffeeHouse = new ImageIcon("codeFiles/src/Views/coffeehouse.jpg");
+        ImageIcon coffeeHouse = new ImageIcon("codeFiles/src/Views/images/coffeehouse.jpg");
         Image imageTemp = coffeeHouse.getImage();
         Image newCoffeeHouseImage = imageTemp.getScaledInstance(70, 60,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
         coffeeHouse = new ImageIcon(newCoffeeHouseImage);
@@ -33,7 +33,7 @@ public class EnergyPanel extends JPanel {
         add(coffeeHouseButton);
 
         JButton sleepButton = new JButton();
-        ImageIcon sleep = new ImageIcon("codeFiles/src/Views/sleep.png");
+        ImageIcon sleep = new ImageIcon("codeFiles/src/Views/images/sleep.png");
         Image imageIcon= sleep.getImage();
         Image newSleepImage = imageIcon.getScaledInstance(70, 60,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
         sleep = new ImageIcon(newSleepImage);
@@ -50,7 +50,7 @@ public class EnergyPanel extends JPanel {
                 cafeteria.setResizable(false);
                 cafeteria.setLayout(new GridLayout(5,1));
                 cafeteria.getContentPane().setBackground(new Color(204,255,204));
-                ImageIcon logoImage = new ImageIcon("codeFiles/src/Views/aries.png");
+                ImageIcon logoImage = new ImageIcon("codeFiles/src/Views/images/aries.png");
                 Image image = logoImage.getImage();
                 Image newCafeteriaImage = image.getScaledInstance(70, 60,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
                 logoImage = new ImageIcon(newCafeteriaImage);
@@ -93,7 +93,7 @@ public class EnergyPanel extends JPanel {
                 coffeehouse.setResizable(false);
                 coffeehouse.setLayout(new GridLayout(5,1));
                 coffeehouse.getContentPane().setBackground(new Color(255,102,102));
-                ImageIcon logoImage = new ImageIcon("codeFiles/src/Views/coffeehouse.jpg");
+                ImageIcon logoImage = new ImageIcon("codeFiles/src/Views/images/coffeehouse.jpg");
                 Image image = logoImage.getImage();
                 Image newCafeteriaImage = image.getScaledInstance(70, 60,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
                 logoImage = new ImageIcon(newCafeteriaImage);

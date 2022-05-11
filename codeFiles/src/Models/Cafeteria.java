@@ -14,22 +14,6 @@ public class Cafeteria extends Place{
         System.out.println("Hi, I am " + this.getWorkersName() + ". What would you like to eat?");
 
     }
-
-//    public String[] getMenu(){
-//        String[] menuCopy = new String[MENU.length];
-//        for (int i = 0; i < menuCopy.length; i++)
-//                menuCopy[i] = MENU[i];
-//        return menuCopy;
-//    }
-
-
-//    public static void main(String[] args) {
-//        Cafeteria cafe = new Cafeteria("Silvi");
-//
-//        cafe.showMenu(Cafeteria.MENU);
-//
-//    }
-
 }
 
 

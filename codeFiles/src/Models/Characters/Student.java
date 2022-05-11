@@ -6,27 +6,36 @@ import Models.Courses.Course;
 
 import java.util.Scanner;
 
-public class Student extends Person {
+public class Student{
     public enum Major {
         COMPUTER_SCIENCE, DATA_SCIENCE, ENGINEERING_SCIENCE,
         BUSINESS, ENGLISH_COMMUNICATIONS, POLITICS_GOVERNANCE}
-
+    public enum Degree {UNDERGRADUATE, GRADUATE};
+    private String name;
+    private String id;
+    static int counter;
     private Major major;
     private int semester;
     private Degree degree;// maybe will be changed
     private int energy;
 
     //Constructors
-    //no-arg(not sure if needed)
     public Student() {
-        super();
+        name = "no-name";
+        id = "A00000000";
+        counter++;
         semester = 1;
         degree = Degree.UNDERGRADUATE;
         major = Major.COMPUTER_SCIENCE;
         energy = 100;
     }
     public Student(String name, Major major, Degree degree, int energy) {
-        super(name);
+        this.name = name;
+        id = Integer.toString(counter);
+        while (id.length() != 8)
+            id = "0" + id;
+        id = "A" + id;
+        counter++;
         this.major = major;
         this.degree = degree;
         semester = 1;
@@ -35,7 +44,8 @@ public class Student extends Person {
 
     //copy-constructor(not sure if needed)
     public Student(Student student){
-        super(student);
+        this.name = student.name;
+        this.id = student.id;
         this.major = student.major;
         this.degree = student.degree;
         this.semester = student.semester;

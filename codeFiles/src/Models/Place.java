@@ -18,9 +18,4 @@ public abstract class Place {
             System.out.println(menu[i]);
         }
     }
-
-//    public abstract String[] getMenu();
-
-    //abstract method for seeing the menu
-    public abstract void getOrder();
 }

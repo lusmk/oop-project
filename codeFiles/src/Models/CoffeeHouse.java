@@ -13,11 +13,4 @@ public class CoffeeHouse extends Place{
         System.out.println("Hi, I am " + this.getWorkersName()
                 + ". What drink would you like?");
     }
-
-//    public static void main(String[] args) {
-//        CoffeeHouse cafe = new CoffeeHouse("Silvi");
-//
-//        cafe.showMenu(CoffeeHouse.MENU);
-//
-//    }
 }

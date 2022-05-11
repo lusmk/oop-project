@@ -1,11 +1,9 @@
 package Views;
-
 import Models.Characters.Student;
 import Models.Courses.Calculus1;
 import Models.Courses.Course;
 import Models.Courses.DiscreteMath;
 import Models.Courses.IntroToCS;
-
 
 import java.util.Scanner;
 
@@ -43,16 +41,12 @@ public class Console {
             try {
                 boolean pass = calculus.checkAssignment("codeFiles/src/TextFiles/calculus1.txt");
                 student.assignmentEnergy();
-//                calculus.checkAssignment("codeFiles/src/TextFiles/calculus1.txt");
-//                System.out.println(student.getEnergy());
                 if(pass) {
                     System.out.println("You have passed the course. Congratulations!");
                     Course discreteMath = new DiscreteMath();
                     try {
                         pass = discreteMath.checkAssignment("codeFiles/src/TextFiles/discretemath.txt");
                         student.assignmentEnergy();
-//                calculus.checkAssignment("codeFiles/src/TextFiles/calculus1.txt");
-//                System.out.println(student.getEnergy());
                         if(pass) {
                             System.out.println("You have passed the course. Congratulations!");
                             Course introToCS= new IntroToCS();
@@ -72,22 +66,6 @@ public class Console {
                 System.out.println(e.getMessage());
             }
     }
-
-//        public void fillQuiz (Course current, Course next, Student student){
-//            try {
-//                boolean pass = current.checkAssignment("codeFiles/src/TextFiles/calculus1.txt");
-//                student.assignmentEnergy();
-////                calculus.checkAssignment("codeFiles/src/TextFiles/calculus1.txt");
-////                System.out.println(student.getEnergy());
-//                if (pass) {
-//                    System.out.println("You have passed the course. Congratulations!");
-//                    //go to the next course
-//                } else
-//                    System.out.println("Unfortunately you failed. Good luck next time.");
-//            } catch (Exception e) {
-//                System.out.println(e.getMessage());
-//            }
-//        }
         public static void main (String[]args){
             Console game = new Console();
             game.play();

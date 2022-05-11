@@ -67,8 +67,6 @@ public class GameUI extends JFrame {
             JFrame gradePanel = new JFrame();
             gradePanel.setSize(740, 410);
             gradePanel.setLayout(new GridLayout(2, 1));
-            gradePanel.setBackground(Color.pink);
-
             JButton submit = new JButton("Submit");
             this.add(submit);
             JButton back = new JButton("Back to your profile");
@@ -106,18 +104,17 @@ public class GameUI extends JFrame {
                         if(answers5.equals(answers.get(4)))
                             grade++;
                     }
-                    JLabel studentGrade = new JLabel("Your grade is " + grade);
+                    JLabel studentGrade = new JLabel("Your grade is " + grade,SwingConstants.CENTER);
                     JLabel pass;
                     if(grade == 5){
                         totalGrade += grade;
-                        pass = new JLabel("Congratulations, you passed the course");
+                        pass = new JLabel("Congratulations, you passed the course",SwingConstants.CENTER);
                     }
 
                     else
-                        pass = new JLabel("You failed the course. Good luck next time.");
+                        pass = new JLabel("You failed the course. Good luck next time.",SwingConstants.CENTER);
                     gradePanel.add(studentGrade);
                     gradePanel.add(pass);
-                    //setVisible(false);
                     gradePanel.setVisible(true);
                 }
             });
@@ -172,8 +169,6 @@ public class GameUI extends JFrame {
             add(question5);
             JTextField answer5 = new JTextField();
             add(answer5);
-
-
 
             JFrame gradePanel = new JFrame();
             gradePanel.setSize(740, 410);
@@ -238,8 +233,6 @@ public class GameUI extends JFrame {
                         JLabel graduationImage = new JLabel(new ImageIcon("codeFiles/src/Views/Graduation.jpeg"));
                         graduationImage.setPreferredSize(new Dimension(GameUI.WIDTH, GameUI.HEIGHT));
                         graduation.add(graduationImage);
-//                        JLabel grad = new JLabel("Congratulation, you have graduated from AUA");
-//                        graduation.add(grad);
                         graduation.setVisible(true);
                     }
 
@@ -374,12 +367,11 @@ public class GameUI extends JFrame {
         setResizable(false);
 
         //panel for start
-        JPanelWithBackground startingPanel = new JPanelWithBackground("codeFiles/src/Views/cover.jpeg");
+        JPanelWithBackground startingPanel = new JPanelWithBackground("codeFiles/src/Views/images/cover.jpeg");
         startingPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 270));
 
         //play button
         JButton button = new JButton("PLAY");
-//        button.setBounds(550, 300, 220, 30);
         button.setBackground(new Color(1,60,94,255));
         button.setFocusable(false);
         button.setFont(new Font("Comic Sans", Font.BOLD, 25));
@@ -457,7 +449,7 @@ public class GameUI extends JFrame {
         JLabel studentMajor = new JLabel("Major name: " + CS.getText());
         JPanel studentProfile = new JPanel(new GridLayout(1, 2));
         studentProfile.setBackground(new Color(178,102,255));
-        ImageIcon logoImage = new ImageIcon("codeFiles/src/Views/avatar.png");
+        ImageIcon logoImage = new ImageIcon("codeFiles/src/Views/images/avatar.png");
         Image image = logoImage.getImage();
         Image newAvatar = image.getScaledInstance(80, 90,  java.awt.Image.SCALE_SMOOTH);
         logoImage = new ImageIcon(newAvatar);
@@ -486,12 +478,6 @@ public class GameUI extends JFrame {
                         CSPanel.add(instructionsHeading);
                         CSPanel.add(instructions);
                         CSPanel.add(bigPanel);
-//                        CSPanel.add(Calculus1);
-//                        CSPanel.add(new Label());
-//                        CSPanel.add(DiscreteMath);
-//                        CSPanel.add(new Label());
-//                        CSPanel.add(IntroToCS);
-//                        CSPanel.add(new Label());
                         welcomePanel.setVisible(false);
                         CSPanel.setVisible(true);
                         add(CSPanel);

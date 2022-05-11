@@ -1,16 +1,10 @@
 package Views;
 
 import Models.Characters.Student;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MajorButton extends JButton {
-    private Student.Major majorName;
-    private int x;
-    private int y;
 
     public MajorButton(Student.Major majorName, int x, int y) {
         super();

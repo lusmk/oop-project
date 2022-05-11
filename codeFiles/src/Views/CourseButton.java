@@ -1,7 +1,5 @@
 package Views;
 
-import Models.Characters.Student;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
