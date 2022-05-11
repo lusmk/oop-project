@@ -1,4 +1,4 @@
-package Models;
+package Models.Places;
 
 public abstract class Place {
     private String workersName;

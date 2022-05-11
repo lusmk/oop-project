@@ -1,8 +1,7 @@
 package Models.Characters;
 
-import Models.Cafeteria;
-import Models.CoffeeHouse;
-import Models.Courses.Course;
+import Models.Places.Cafeteria;
+import Models.Places.CoffeeHouse;
 
 import java.util.Scanner;
 

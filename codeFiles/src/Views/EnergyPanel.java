@@ -1,7 +1,7 @@
 package Views;
 
-import Models.Cafeteria;
-import Models.CoffeeHouse;
+import Models.Places.Cafeteria;
+import Models.Places.CoffeeHouse;
 
 import javax.swing.*;
 import java.awt.*;

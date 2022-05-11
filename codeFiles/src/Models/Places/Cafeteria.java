@@ -1,6 +1,6 @@
-package Models;
+package Models.Places;
 
-public class Cafeteria extends Place{
+public class Cafeteria extends Place {
     public static final String[] MENU = {
             "Burger: 6", "Pizza: 5", "Salad: 4", "Fries: 3", "Soup: 7"
     };
