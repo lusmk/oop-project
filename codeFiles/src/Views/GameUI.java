@@ -18,6 +18,7 @@ public class GameUI extends JFrame {
     public static final int HEIGHT = 410;
     private String studentName;
     JPanel CSPanel;
+    private int totalGrade;
 
     private class Calculus1Test extends JPanel {
         public static int grade = 0;
@@ -107,8 +108,11 @@ public class GameUI extends JFrame {
                     }
                     JLabel studentGrade = new JLabel("Your grade is " + grade);
                     JLabel pass;
-                    if(grade == 5)
+                    if(grade == 5){
+                        totalGrade += grade;
                         pass = new JLabel("Congratulations, you passed the course");
+                    }
+
                     else
                         pass = new JLabel("You failed the course. Good luck next time.");
                     gradePanel.add(studentGrade);
@@ -215,14 +219,30 @@ public class GameUI extends JFrame {
                     }
                     JLabel studentGrade = new JLabel("Your grade is " + grade);
                     JLabel pass;
-                    if(grade == 5)
+                    if(grade == 5) {
+                        totalGrade += grade;
                         pass = new JLabel("Congratulations, you passed the course");
+                    }
                     else
                         pass = new JLabel("You failed the course. Good luck next time.");
                     gradePanel.add(studentGrade);
                     gradePanel.add(pass);
                     //setVisible(false);
                     gradePanel.setVisible(true);
+                    System.out.println(totalGrade);
+                    if(totalGrade == 10) {
+                        JFrame graduation = new JFrame();
+                        graduation.setSize(GameUI.WIDTH, GameUI.HEIGHT);
+                        graduation.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        graduation.setResizable(false);
+                        JLabel graduationImage = new JLabel(new ImageIcon("codeFiles/src/Views/Graduation.jpeg"));
+                        graduationImage.setPreferredSize(new Dimension(GameUI.WIDTH, GameUI.HEIGHT));
+                        graduation.add(graduationImage);
+//                        JLabel grad = new JLabel("Congratulation, you have graduated from AUA");
+//                        graduation.add(grad);
+                        graduation.setVisible(true);
+                    }
+
                 }
             });
 
@@ -304,20 +324,43 @@ public class GameUI extends JFrame {
         JPanel garbage = new JPanel();
         garbage.setBackground(new Color(204,204,255));
 
+        JPanel coursePanel = new JPanel();
+        coursePanel.setBackground(new Color(255,204,255));
         //CS semester 1 panel
         CourseButton Calculus1 = new CourseButton("Calculus1", 50, 400);
+        Calculus1.setBackground(new Color(178,102,255));
         CourseButton DiscreteMath = new CourseButton("Discrete Math",100,400);
+        DiscreteMath.setBackground(new Color(178,102,255));
         CourseButton IntroToCS = new CourseButton("Intro to CS",150,400);
+        IntroToCS.setBackground(new Color(178,102,255));
+        coursePanel.add(Calculus1);
+        coursePanel.add(DiscreteMath);
+        coursePanel.add(IntroToCS);
+
+        JPanel bigPanel = new JPanel(new FlowLayout());
+        bigPanel.setBackground(new Color(255,204,255));
+        bigPanel.add(new JLabel());
+        bigPanel.add(coursePanel);
+        bigPanel.add(new JLabel());
 
         // student panel
         JLabel studentMajor = new JLabel("Major name: " + CS.getText());
         JPanel studentProfile = new JPanel(new GridLayout(1, 2));
-        JLabel studentAvatar = new JLabel(new ImageIcon("codeFiles/src/Views/avatar.png"));
-        studentAvatar.setPreferredSize(new Dimension(100, 100));
+        studentProfile.setBackground(new Color(178,102,255));
+        ImageIcon logoImage = new ImageIcon("codeFiles/src/Views/avatar.png");
+        Image image = logoImage.getImage();
+        Image newAvatar = image.getScaledInstance(80, 90,  java.awt.Image.SCALE_SMOOTH);
+        logoImage = new ImageIcon(newAvatar);
+        JLabel studentAvatar = new JLabel(logoImage);
         studentProfile.add(studentAvatar);
+        JLabel instructionsHeading= new JLabel("Instructions", SwingConstants.CENTER);
+        instructionsHeading.setFont(new Font("Serif", Font.PLAIN, 20));
+        JLabel instructions = new JLabel("<html>Below you see the list of required courses for your graduation. Under each icon you can find a quiz for corresponding course. You can only pass the course if you give correct answer to all questions.<br/>Good luck!</html>", SwingConstants.CENTER);
+
 
         //panel for name and major
         JPanel studentNameMajor = new JPanel(new GridLayout(2, 1));
+        studentNameMajor.setBackground(new Color(178,102,255));
 
         submitNameButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -327,22 +370,31 @@ public class GameUI extends JFrame {
                 studentName = nameField.getText();
                 JLabel studentName1 = new JLabel(studentName);
                 studentNameMajor.add(studentName1);
+                CS.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        CSPanel.add(studentProfile);
+                        CSPanel.add(instructionsHeading);
+                        CSPanel.add(instructions);
+                        CSPanel.add(bigPanel);
+//                        CSPanel.add(Calculus1);
+//                        CSPanel.add(new Label());
+//                        CSPanel.add(DiscreteMath);
+//                        CSPanel.add(new Label());
+//                        CSPanel.add(IntroToCS);
+//                        CSPanel.add(new Label());
+                        welcomePanel.setVisible(false);
+                        CSPanel.setVisible(true);
+                        add(CSPanel);
+                    }
+                });
             }
         });
         studentNameMajor.add(studentMajor);
         studentProfile.add(studentNameMajor);
         CSPanel = new JPanel(new GridLayout(4, 1));
+        CSPanel.setBackground(new Color(255,204,255));
 
-        int gradeCalc = Calculus1Test.grade;
-        int gradeDiscrete = DiscreteMathTest.grade;
 
-        if(gradeCalc + gradeDiscrete == 10) {
-            JPanel graduation = new JPanel();
-            JLabel grad = new JLabel("Congratulation, you have graduated AUA");
-            graduation.add(grad);
-            setVisible(false);
-            graduation.setVisible(true);
-        }
 
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -354,17 +406,7 @@ public class GameUI extends JFrame {
 
         EnergyPanel energyButtons = new EnergyPanel();
         studentProfile.add(energyButtons);
-        CS.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                CSPanel.add(studentProfile);
-                CSPanel.add(Calculus1);
-                CSPanel.add(DiscreteMath);
-                CSPanel.add(IntroToCS);
-                welcomePanel.setVisible(false);
-                CSPanel.setVisible(true);
-                add(CSPanel);
-            }
-        });
+
 
         Calculus1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
