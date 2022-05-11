@@ -1,5 +1,0 @@
-1. Calculate ∫ x^2+3 dx from 3 to 9 Answer:252
-2. What methods can we use to study the convergence of the integral Answer:direct, limit
-3. Calculate the improper integral ∫ 1/x^2 dx 3 to infinity Answer:1/3
-4. If the limit of the sequence is zero, is the sum convergent or divergent Answer:convergent
-5. Integral is absolutely convergent if... Answer:the function and its module are convergent

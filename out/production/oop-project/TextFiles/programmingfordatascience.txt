@@ -1,5 +1,0 @@
-1. Which is the correct extension of the Python file? Answer:.py
-2. Which is used to define a block of code in Python language? Answer:Indentation
-3. Which keyword is used for function in Python language? Answer:Def
-4. What arithmetic operators cannot be used with strings in Python? Answer:-
-5. What is the return value of trunc()? Answer:int
