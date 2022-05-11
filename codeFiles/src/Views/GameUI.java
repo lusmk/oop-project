@@ -230,7 +230,7 @@ public class GameUI extends JFrame {
                     //setVisible(false);
                     gradePanel.setVisible(true);
                     System.out.println(totalGrade);
-                    if(totalGrade == 10) {
+                    if(totalGrade == 15) {
                         JFrame graduation = new JFrame();
                         graduation.setSize(GameUI.WIDTH, GameUI.HEIGHT);
                         graduation.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -255,6 +255,116 @@ public class GameUI extends JFrame {
         }
     }
 
+    private class IntroToCSTest extends JPanel {
+        public static int grade = 0;
+        public IntroToCSTest() throws FileNotFoundException {
+            setSize(WIDTH, HEIGHT);
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setResizable(false);
+            setLayout(new GridLayout(12, 1));
+
+            File file = new File("codeFiles/src/TextFiles/introtocs.txt");
+            Scanner sc = new Scanner(file);
+
+            ArrayList<String> questions = new ArrayList<>(5);
+            ArrayList<String> answers = new ArrayList<>(5);
+            while (sc.hasNextLine()) {
+                String[] arr = sc.nextLine().split("Answer:");
+                String question = arr[0];
+                questions.add(question);
+                String answer = arr[1];
+                answers.add(answer);
+            }
+
+            JLabel question1 = new JLabel(questions.get(0));
+            add(question1);
+            JTextField answer1 = new JTextField();
+            add(answer1);
+            JLabel question2 = new JLabel(questions.get(1));
+            add(question2);
+            JTextField answer2 = new JTextField();
+            add(answer2);
+            JLabel question3 = new JLabel(questions.get(2));
+            add(question3);
+            JTextField answer3 = new JTextField();
+            add(answer3);
+            JLabel question4 = new JLabel(questions.get(3));
+            add(question4);
+            JTextField answer4 = new JTextField();
+            add(answer4);
+            JLabel question5 = new JLabel(questions.get(4));
+            add(question5);
+            JTextField answer5 = new JTextField();
+            add(answer5);
+
+
+
+            JFrame gradePanel = new JFrame();
+            gradePanel.setSize(740, 410);
+            gradePanel.setLayout(new GridLayout(2, 1));
+            gradePanel.setBackground(Color.pink);
+
+            JButton submit = new JButton("Submit");
+            this.add(submit);
+            JButton back = new JButton("Back to your profile");
+            this.add(back);
+
+            submit.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    String answers1 = answer1.getText();
+                    String answers2 = answer2.getText();
+                    String answers3 = answer3.getText();
+                    String answers4 = answer4.getText();
+                    String answers5 = answer5.getText();
+
+                    if(!(answers1.equals(""))) {
+                        if(answers1.equals(answers.get(0)))
+                            grade++;
+                    }
+
+                    if(!(answers2.equals(""))) {
+                        if(answers2.equals(answers.get(1)))
+                            grade++;
+                    }
+
+                    if(!(answers3.equals(""))) {
+                        if(answers3.equals(answers.get(2)))
+                            grade++;
+                    }
+
+                    if(!(answers4.equals(""))) {
+                        if(answers4.equals(answers.get(3)))
+                            grade++;
+                    }
+
+                    if(!(answers5.equals(""))) {
+                        if(answers5.equals(answers.get(4)))
+                            grade++;
+                    }
+                    JLabel studentGrade = new JLabel("Your grade is " + grade);
+                    JLabel pass;
+                    if(grade == 5){
+                        totalGrade += grade;
+                        pass = new JLabel("Congratulations, you passed the course");
+                    }
+
+                    else
+                        pass = new JLabel("You failed the course. Good luck next time.");
+                    gradePanel.add(studentGrade);
+                    gradePanel.add(pass);
+                    //setVisible(false);
+                    gradePanel.setVisible(true);
+                }
+            });
+
+            back.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    setVisible(false);
+                    CSPanel.setVisible(true);
+                }
+            });
+        }
+    }
     public GameUI() throws IOException {
         super("AUA Student Life Simulator");
 
@@ -432,5 +542,16 @@ public class GameUI extends JFrame {
             }
         });
 
+        IntroToCS.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                try{
+                    IntroToCSTest test = new IntroToCSTest();
+                    add(test);
+                    CSPanel.setVisible(false);
+                } catch(FileNotFoundException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
     }
 }
