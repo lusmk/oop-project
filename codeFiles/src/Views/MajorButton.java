@@ -22,9 +22,9 @@ public class MajorButton extends JButton {
             name = String.valueOf(majorName);
         setText(name);
         setBounds(x, y, 220, 30);
-        setBackground(Color.GREEN);
+        setBackground(new Color(178,102,255));
         setFocusable(false);
-        setFont(new Font("Comic Sans", Font.BOLD, 25));
+        setFont(new Font("Comic Sans", Font.PLAIN, 20));
         setForeground(Color.WHITE);
 
     }

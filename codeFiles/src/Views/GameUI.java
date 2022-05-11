@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -43,22 +42,29 @@ public class GameUI extends JFrame {
 
         // welcome panel
         JPanel welcomePanel = new JPanel();
-        welcomePanel.setBackground(Color.PINK);
-        welcomePanel.setLayout(new GridLayout(6,1));
-        JLabel welcomeText = new JLabel("Hello! Welcome to AUA.");
+        welcomePanel.setBackground(new Color(204,204,255));
+        welcomePanel.setLayout(new GridLayout(5,1));
+        JLabel welcomeText = new JLabel("Hello! Welcome to AUA.",SwingConstants.CENTER);
+        welcomeText.setFont(new Font("Serif", Font.PLAIN, 20));
         welcomePanel.add(welcomeText);
-        JLabel name = new JLabel("Please type in your name");
+        JPanel namePanel = new JPanel();
+        namePanel.setBackground(new Color(204,204,255));
+        JLabel name = new JLabel("Please type in your name",SwingConstants.CENTER);
+        name.setFont(new Font("Serif", Font.PLAIN, 20));
         welcomePanel.add(name);
         TextField nameField = new TextField(20);
         JButton submitNameButton = new JButton("SUBMIT");
-        submitNameButton.setBounds(550, 300, 220, 30);
-        submitNameButton.setBackground(Color.GREEN);
+        submitNameButton.setBounds(550, 300, 100, 30);
+        submitNameButton.setPreferredSize(new Dimension(150, 40));
+        submitNameButton.setBackground(new Color(178,102,255));
         submitNameButton.setFocusable(false);
-        submitNameButton.setFont(new Font("Comic Sans", Font.BOLD, 25));
+        submitNameButton.setFont(new Font("Comic Sans", Font.PLAIN, 20));
         submitNameButton.setForeground(Color.WHITE);
-        welcomePanel.add(nameField);
-        welcomePanel.add(submitNameButton);
-        JLabel majorText = new JLabel("Please select your major");
+        namePanel.add(nameField);
+        namePanel.add(submitNameButton);
+        welcomePanel.add(namePanel);
+        JLabel majorText = new JLabel("Please select your major",SwingConstants.CENTER);
+        majorText.setFont(new Font("Serif", Font.PLAIN, 20));
         welcomePanel.add(majorText);
 
         // major panel
@@ -77,6 +83,9 @@ public class GameUI extends JFrame {
         majorPanel.add(EC);
         majorPanel.add(PG);
         welcomePanel.add(majorPanel);
+
+        JPanel garbage = new JPanel();
+        garbage.setBackground(new Color(204,204,255));
 
         //CS semester 1 panel
         CourseButton Calculus1 = new CourseButton("Calculus1", 50, 400);
