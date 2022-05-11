@@ -1,6 +1,6 @@
 package Models.Places;
 
-public abstract class Place {
+public abstract class Place implements Order{
     private String workersName;
 
     public Place(String workersName){
@@ -11,6 +11,8 @@ public abstract class Place {
     public String getWorkersName(){
         return this.workersName;
     }
+
+    public abstract void getOrder();
 
     public void showMenu(String[] menu){
         System.out.println("Here's the menu for today: ");
