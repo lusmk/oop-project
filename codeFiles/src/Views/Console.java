@@ -4,6 +4,7 @@ import Models.Courses.Calculus1;
 import Models.Courses.Course;
 import Models.Courses.DiscreteMath;
 import Models.Courses.IntroToCS;
+import jdk.swing.interop.SwingInterOpUtils;
 
 import java.util.Scanner;
 
@@ -31,8 +32,20 @@ public class Console {
             case 2:
                 major = Student.Major.DATA_SCIENCE;
                 break;
+            case 3:
+                major = Student.Major.ENGINEERING_SCIENCE;
+                break;
+            case 4:
+                major = Student.Major.BUSINESS;
+                break;
+            case 5:
+                major = Student.Major.ENGLISH_COMMUNICATIONS;
+                break;
+            case 6:
+                major = Student.Major.POLITICS_GOVERNANCE;
+                break;
         }
-        String m = "Computer Science"; //TODO: Check grid added later
+        String m = "Computer Science";
         System.out.println("You have picked your major. Here are your assignments, you need to " +
                 "complete all of them to pass to the next semester");
         Student student = new Student(name, major, Student.Degree.UNDERGRADUATE, 100);
@@ -43,15 +56,25 @@ public class Console {
                 student.assignmentEnergy();
                 if(pass) {
                     System.out.println("You have passed the course. Congratulations!");
+                    System.out.println("Here is your second course assignment.");
                     Course discreteMath = new DiscreteMath();
                     try {
                         pass = discreteMath.checkAssignment("codeFiles/src/TextFiles/discretemath.txt");
                         student.assignmentEnergy();
                         if(pass) {
                             System.out.println("You have passed the course. Congratulations!");
+                            System.out.println("Here is your last course assignment.");
                             Course introToCS= new IntroToCS();
-                        }
-                        else
+                            try
+                            {
+                                pass = introToCS.checkAssignment("codeFiles/src/TextFiles/introtocs.txt");
+                                student.assignmentEnergy();
+                                System.out.println("Congratulations, you passed your last course. " +
+                                        "Now you officially graduated AUA. Good luck in your future career.");
+                            } catch(Exception e) {
+                                System.out.println(e.getMessage());
+                            }
+                        } else
                             System.out.println("Unfortunately you failed. Good luck next time.");
                     } catch(Exception e) {
                         System.out.println(e.getMessage());
