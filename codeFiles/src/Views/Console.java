@@ -66,9 +66,5 @@ public class Console {
                 System.out.println(e.getMessage());
             }
     }
-        public static void main (String[]args){
-            Console game = new Console();
-            game.play();
-        }
 
 }
