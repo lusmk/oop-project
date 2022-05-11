@@ -17,6 +17,7 @@ public class GameUI extends JFrame {
     public static final int WIDTH = 740;
     public static final int HEIGHT = 410;
     private String studentName;
+    JPanel CSPanel;
 
     public GameUI() throws IOException {
         super("AUA Student Life Simulator");
@@ -114,7 +115,7 @@ public class GameUI extends JFrame {
         });
         studentNameMajor.add(studentMajor);
         studentProfile.add(studentNameMajor);
-        JPanel CSPanel = new JPanel(new GridLayout(4, 1));
+        CSPanel = new JPanel(new GridLayout(4, 1));
 
 
         // business semester 1 panel
@@ -269,7 +270,8 @@ public class GameUI extends JFrame {
 
             back.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-
+                    setVisible(false);
+                    CSPanel.setVisible(true);
                 }
             });
         }
