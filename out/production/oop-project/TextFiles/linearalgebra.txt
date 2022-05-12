@@ -1,0 +1,5 @@
+1. Calculate the sum of the vectors [1 2] and [5 6] Answer:[6 8]
+2. Can you calculate the product of two matrices if the number of columns of first matrix and the number of rows of the second matrix are different (answer should be only yes or no) Answer:no
+3. Is the matrix invertible if its determinant is equal to zero (answer should be only yes or no) Answer:no
+4. Is the rank or row space and column space of the matrix the same (answer should be only yes or no) Answer:yes
+5. Find the nullity of the matrix if the matrix contains 7 vectors and the rank of the matrix is 4 Answer:3

@@ -1,7 +1,6 @@
 package Views;
 
 import Models.Characters.Student;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -171,7 +170,7 @@ public class GameUI extends JFrame {
             add(answer5);
 
             JFrame gradePanel = new JFrame();
-            gradePanel.setSize(740, 410);
+            gradePanel.setSize(300, 300);
             gradePanel.setLayout(new GridLayout(2, 1));
             gradePanel.setBackground(Color.pink);
 
@@ -224,7 +223,6 @@ public class GameUI extends JFrame {
                     gradePanel.add(pass);
                     //setVisible(false);
                     gradePanel.setVisible(true);
-                    System.out.println(totalGrade);
                     if(totalGrade == 15) {
                         JFrame graduation = new JFrame();
                         graduation.setSize(GameUI.WIDTH, GameUI.HEIGHT);
@@ -293,7 +291,7 @@ public class GameUI extends JFrame {
 
 
             JFrame gradePanel = new JFrame();
-            gradePanel.setSize(740, 410);
+            gradePanel.setSize(300, 300);
             gradePanel.setLayout(new GridLayout(2, 1));
             gradePanel.setBackground(Color.pink);
 
@@ -347,6 +345,16 @@ public class GameUI extends JFrame {
                     gradePanel.add(pass);
                     //setVisible(false);
                     gradePanel.setVisible(true);
+                    if(totalGrade == 15) {
+                        JFrame graduation = new JFrame();
+                        graduation.setSize(GameUI.WIDTH, GameUI.HEIGHT);
+                        graduation.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        graduation.setResizable(false);
+                        JLabel graduationImage = new JLabel(new ImageIcon("codeFiles/src/Views/images/Graduation.jpeg"));
+                        graduationImage.setPreferredSize(new Dimension(GameUI.WIDTH, GameUI.HEIGHT));
+                        graduation.add(graduationImage);
+                        graduation.setVisible(true);
+                    }
                 }
             });
 
