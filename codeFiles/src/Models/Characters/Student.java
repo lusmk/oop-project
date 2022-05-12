@@ -107,7 +107,7 @@ public class Student{
     }
 
     public void assignmentEnergy() {
-        this.energy -= 20;
+       this.energy -= 20;
        Scanner sc = new Scanner(System.in);
         if (energy <= 90) {
             System.out.println("Your energy is " + this.energy + ". Please restore your energy: " +
